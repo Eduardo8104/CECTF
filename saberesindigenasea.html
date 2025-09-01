@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saberes Ancestrais — Indígenas & Africanos</title>
+  <meta name="description" content="Introdução e documentação respeitosa sobre saberes indígenas e africanos ancestrais: práticas, cosmologias e caminhos de cuidado com a Terra." />
+
+  <style>
+/* =============================
+   DESIGN SYSTEM (cores, espaçamentos, etc)
+   ============================= */
+:root {
+  --bg: #0b1b13; /* fundo base (escuro elegante) */
+  --surface: #11251b; /* cartões, barras */
+  --surface-2: #0f2119; /* variação leve */
+  --text: #ecfdf5; /* texto principal */
+  --muted: #a7f3d0; /* texto secundário */
+  --brand: #34d399; /* verde principal */
+  --brand-2: #10b981; /* verde secundário */
+  --accent: #22d3ee; /* detalhezinho azul */
+  --danger: #ef4444; /* para alertas */
+  --ring: #34d39966; /* foco/acessibilidade */
+
+  --radius: 18px;
+  --shadow-1: 0 10px 30px rgba(0, 0, 0, .25);
+  --shadow-2: 0 20px 60px rgba(0, 0, 0, .35);
+
+  --container: 1120px;
+  --gap: 20px;
+}
+
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 20% -10%, #1a3a2b 0%, transparent 60%),
+    radial-gradient(1200px 600px at 100% 10%, #0d2b20 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg), #07140f 20%, var(--bg) 60%);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+/* NAVBAR */
+header { position: sticky; top: 0; z-index: 50; background: color-mix(in oklab, var(--surface) 70%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid color-mix(in oklab, var(--brand) 40%, transparent); }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .5px; }
+.logo svg { width: 32px; height: 32px; }
+.menu { display: flex; gap: 14px; align-items: center; }
+.menu a { padding: 10px 14px; border-radius: 999px; color: var(--text); opacity: .95; }
+.menu a:hover { background: color-mix(in oklab, var(--brand) 20%, transparent); opacity: 1; }
+.cta-btn { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #052014; font-weight: 700; padding: 10px 16px; border-radius: 999px; box-shadow: var(--shadow-1); border: none; cursor: pointer; }
+.hamb { display: none; }
+@media (max-width: 860px) { .menu { display: none; } .hamb { display: inline-flex; align-items: center; gap: 8px; } .drawer { position: fixed; inset: 0 0 auto auto; right: 0; top: 64px; width: min(320px, 90vw); background: var(--surface); box-shadow: var(--shadow-2); border-left: 1px solid #1b3a2c; border-bottom-left-radius: var(--radius); transform: translateX(110%); transition: transform .25s ease; } .drawer.open { transform: translateX(0); } .drawer a { display: block; padding: 14px 18px; border-bottom: 1px solid #143527; } }
+
+/* HERO */
+.hero { position: relative; padding: 80px 0 60px; }
+.grid-hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+@media (max-width: 980px) { .grid-hero { grid-template-columns: 1fr; } }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: color-mix(in oklab, var(--brand) 18%, transparent); color: var(--muted); font-weight: 700; border: 1px solid color-mix(in oklab, var(--brand) 30%, transparent); }
+h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; margin: 10px 0 16px; letter-spacing: -.5px; }
+.lead { font-size: clamp(16px, 2.4vw, 20px); color: color-mix(in oklab, var(--text) 85%, #ffffff80); font-size: x-large; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 999px; font-weight: 700; border: 1px solid transparent; cursor: pointer; }
+.btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #052014; }
+.btn-outline { border-color: color-mix(in oklab, var(--brand) 35%, transparent); }
+.hero-card { position: relative; background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 80%, transparent), color-mix(in oklab, var(--surface-2) 90%, transparent)); border: 1px solid #1b3a2c; border-radius: calc(var(--radius) + 4px); box-shadow: var(--shadow-2); overflow: hidden; }
+.hero-card-inner { padding: 20px; display: grid; grid-template-columns: 1fr; gap: 14px; }
+.illustration { aspect-ratio: 4/3; border-radius: 16px; overflow: hidden; background: radial-gradient(180px 100px at 85% 20%, #12af7b55 0%, transparent 60%), radial-gradient(300px 160px at 10% 20%, #0ea5e955 0%, transparent 60%), linear-gradient(135deg, #0a3024, #051b14); position: relative; }
+.illustration svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .9; }
+
+/* SEÇÕES GENÉRICAS */
+section { padding: 64px 0; position: relative; }
+.section-subhead { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.section-title { font-size: clamp(24px, 3.2vw, 36px); margin: 0; }
+.section-desc { max-width: 70ch; color: color-mix(in oklab, var(--text) 80%, #ffffff80); }
+
+/* CARDS + GRID */
+.grid { display: grid; gap: var(--gap); max-width: var(--container); margin: auto; padding: 40px 20px; }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 960px) { .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; } }
+.card { background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 88%, transparent), color-mix(in oklab, var(--surface-2) 96%, transparent)); border: 1px solid #153c2c; border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-1); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.card:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--brand) 50%, #153c2c); box-shadow: var(--shadow-2); }
+.card02 { background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 88%, transparent), color-mix(in oklab, var(--surface-2) 96%, transparent)); border: 1px solid #153c2c; border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-1); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; position: relative; }
+.card02:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--brand) 50%, #153c2c); box-shadow: var(--shadow-2); }
+
+.timeline { position: relative; margin-left: 16px; padding-left: 22px; border-left: 2px dashed color-mix(in oklab, var(--brand) 50%, #1b3a2c); }
+.timeline-item { margin: 16px 0; }
+
+.field { display: grid; gap: 8px; }
+label { font-weight: 700; color: var(--muted); }
+input, textarea, select { appearance: none; background: color-mix(in oklab, var(--surface-2) 92%, transparent); color: var(--text); border: 1px solid #174a34; border-radius: 14px; padding: 12px 14px; outline: none; }
+input:focus, textarea:focus, select:focus { box-shadow: 0 0 0 4px var(--ring); border-color: var(--brand); }
+
+footer { padding: 40px 0; background: linear-gradient(180deg, var(--surface), #0b1b13); border-top: 1px solid #123826; margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 20px; }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; } }
+.copyright { margin-top: 14px; font-size: 14px; color: color-mix(in oklab, var(--text) 70%, #ffffff80); }
+
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+.center { text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo" aria-label="Logotipo Saberes">
+        <!-- símbolo abstrato que remete a conexão terra-céu -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" stroke="url(#g)" stroke-width="2" />
+          <path d="M10 44 C20 28 44 28 54 44" stroke="url(#g)" stroke-width="2" fill="none" />
+        </svg>
+        <span>Saberes Ancestrais</span>
+      </div>
+
+      <nav class="menu" aria-label="Navegação principal">
+        <a href="#principios">Princípios</a>
+        <a href="#praticas">Práticas</a>
+        <a href="#historia">História</a>
+        <a href="#recursos">Recursos</a>
+      </nav>
+
+      <div style="display:flex; gap:12px; align-items:center">
+        <a class="cta-btn" href="#recursos">Explorar</a>
+        <button class="hamb" aria-label="Abrir menu" onclick="toggleDrawer()">☰</button>
+      </div>
+    </div>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="#principios">Princípios</a>
+      <a href="#praticas">Práticas</a>
+      <a href="#historia">História</a>
+      <a href="#recursos">Recursos</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid-hero">
+        <div>
+          <div class="tag">Saberes Indígenas & Africanos</div>
+          <h1>Harmonia ancestral: <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">conhecimento, cuidado e comunidade</span></h1>
+          <p class="lead">Apresentação respeitosa de práticas, cosmologias e modos de cuidado que atravessam povos indígenas e africanos — com foco na preservação, reciprocidade e sustentabilidade.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#praticas">Práticas vivas</a>
+            <a class="btn btn-outline" href="#recursos">Fontes & ética</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" role="note" aria-label="Resumo sobre saberes ancestrais">
+          <div class="hero-card-inner">
+            <div class="illustration" aria-hidden="true">
+              <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1">
+                    <stop offset="0" stop-color="#34d399" />
+                    <stop offset="1" stop-color="#0ea5e9" />
+                  </linearGradient>
+                </defs>
+                <rect width="600" height="400" fill="url(#g)" opacity="0.04" />
+                <g fill="none" stroke="url(#g)" stroke-width="2">
+                  <path d="M40 320 Q200 80 560 320" opacity="0.6" />
+                  <circle cx="120" cy="120" r="52" opacity="0.12" fill="#34d399" />
+                </g>
+              </svg>
+            </div>
+
+            <div>
+              <blockquote style="margin:0; font-weight:700; font-size:18px">"Conhecimento é cuidado: saberes que mantêm relações e territórios vivos."</blockquote>
+              <p class="mt-2" style="color:var(--muted); margin:0">— nota editorial</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="principios">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Princípios e valores</h2>
+          <p class="section-desc">Elementos recorrentes entre diferentes tradições: reciprocidade, territorialidade, oralidade e respeito pelas gerações futuras.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Reciprocidade</h3>
+            <p class="mt-2">Relações de troca entre pessoas, seres não humanos e territórios — cuidado mútuo como alicerce social.</p>
+          </article>
+          <article class="card">
+            <h3>Territorialidade</h3>
+            <p class="mt-2">Conhecimento situado: práticas que nascem de relações íntimas com lugares, rios, florestas e ciclos locais.</p>
+          </article>
+          <article class="card">
+            <h3>Oralidade e memória</h3>
+            <p class="mt-2">Transmissão por histórias, cantos, rituais e educação intergeracional — memória viva do cotidiano.</p>
+          </article>
+          <article class="card">
+            <h3>Cosmologias</h3>
+            <p class="mt-2">Visões de mundo que conectam humanos, ancestrais e forças não visíveis, orientando práticas e responsabilidades.</p>
+          </article>
+          <article class="card">
+            <h3>Sustentabilidade relacional</h3>
+            <p class="mt-2">Práticas de uso que mantêm a fecundidade do lugar, não apenas extraem recursos.</p>
+          </article>
+          <article class="card">
+            <h3>Autoria e cuidado</h3>
+            <p class="mt-2">Valorização dos detentores de saberes: direitos de autoria, consentimento e benefício mútuo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="praticas">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Práticas vivas</h2>
+          <p class="section-desc">Exemplos de práticas que expressam os princípios: manejo, cerimônia, remediação e educação comunitária.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Manejo tradicional</h3>
+            <p class="mt-2">Técnicas agrícolas e florestais que integram ciclos naturais e promovem diversidade.</p>
+          </article>
+          <article class="card">
+            <h3>Cerimônias de cuidado</h3>
+            <p class="mt-2">Rituais que renovam laços sociais e reequilibram relações com não humanos.</p>
+          </article>
+          <article class="card">
+            <h3>Transmissão oral</h3>
+            <p class="mt-2">Ensinos através de narrativas, prover modelos práticos e éticos para a vida comunitária.</p>
+          </article>
+          <article class="card">
+            <h3>Remédios e fitoterapias</h3>
+            <p class="mt-2">Conhecimentos sobre plantas e técnicas curativas adaptadas a contextos locais.</p>
+          </article>
+          <article class="card">
+            <h3>Educação comunitária</h3>
+            <p class="mt-2">Aprendizagem situada: jovens aprendem pelo fazer junto a mais velhos.</p>
+          </article>
+          <article class="card">
+            <h3>Práticas de governança</h3>
+            <p class="mt-2">Formas próprias de organização social que garantem decisões coletivas e cuidado do território.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Linha do tempo resumida</h2>
+          <p class="section-desc">Apontamentos históricos e fluxos de resistência e revitalização.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item card02">
+            <h4>Antes da colonização</h4>
+            <p class="mt-2">Sistemas de saberes locais organizando agricultura, medicina e cosmologias em milhares de territórios.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>Colonialismo e apagamento</h4>
+            <p class="mt-2">Violências que interromperam e marginalizaram práticas e línguas, mas não as apagaram.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>Movimentos de resistência</h4>
+            <p class="mt-2">Recuperação linguística, demarcação de terras e valorização de saberes tradicionais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Recursos & Ética</h2>
+          <p class="section-desc">Fontes recomendadas, lembretes éticos e orientações para pesquisa respeitosa.</p>
+        </div>
+
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Princípios éticos</h3>
+            <ul class="mt-2">
+              <li>Obter consentimento informados e contínuos.</li>
+              <li>Reconhecer autoria e dar retorno às comunidades.</li>
+              <li>Não extrair saberes para lucro sem benefício compartilhado.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Leituras e acervos</h3>
+            <p class="mt-2">Sugestões: trabalhos de lideranças indígenas, estudos de antropologia crítica e plataformas de acervos comunitários.</p>
+          </div>
+
+          <div class="card">
+            <h3>Como colaborar</h3>
+            <p class="mt-2">Procure parcerias longas, apoio a iniciativas locais e formas de coautoria que respeitem protocolos culturais.</p>
+          </div>
+
+          <div class="card">
+            <h3>Contatos</h3>
+            <p class="mt-2">Se você representa uma comunidade e quer colaborar, escreva para: contato@saberes.ancestrais</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Saberes Ancestrais</h4>
+        <p class="copyright">© <span id="year"></span> — Respeito, coautoria e reparação.</p>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
+          <li><a href="#">Acervos comunitários</a></li>
+          <li><a href="#">Protocolos de pesquisa ética</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p style="color:var(--muted)">contato@saberes.ancestrais</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleDrawer(){
+      const d = document.getElementById('drawer');
+      d.classList.toggle('open');
+      d.setAttribute('aria-hidden', d.classList.contains('open') ? 'false' : 'true');
+    }
+
+    // reveal on scroll
+    const r = document.querySelectorAll('.reveal');
+    function onScroll(){
+      r.forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60){ el.classList.add('in') }
+      })
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+  <button class="btn btn-primary" type="" onclick="window.history.back()">Voltar</button>
+</body>
+</html>
