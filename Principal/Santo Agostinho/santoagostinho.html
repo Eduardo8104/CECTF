@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Santo Agostinho & São Tomás de Aquino</title>
+  <link rel="stylesheet" href="santoago.css">
+ </head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden>
+          <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        FILOSOFIA CLÁSSICA
+      </div>
+
+      <nav class="menu">
+        <a href="#home">Início</a>
+        <a href="#biografias">Biografias</a>
+        <a href="#obras">Obras</a>
+        <a href="#comparacao">Comparação</a>
+        <a href="#timeline">Linha do Tempo</a>
+        <a href="#contato" class="cta-btn">Contato</a>
+      </nav>
+
+      <button class="hamb" aria-label="abrir menu" onclick="toggleDrawer()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="#home">Início</a>
+      <a href="#biografias">Biografias</a>
+      <a href="#obras">Obras</a>
+      <a href="#comparacao">Comparação</a>
+      <a href="#timeline">Linha do Tempo</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="grid-hero">
+        <div>
+          <span class="tag">Santo Agostinho &amp; São Tomás</span>
+          <h1>Do interior ao universal — duas trajetórias da filosofia cristã</h1>
+          <p class="lead">Uma apresentação comparativa das vidas, obras e ideias centrais de Santo Agostinho (354–430) e São Tomás de Aquino (1225–1274). Explore biografias, textos principais e como cada um contribuiu para a filosofia, teologia e ética ocidental.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#biografias">Ver biografias</a>
+            <a class="btn btn-outline" href="#comparacao">Comparar ideias</a>
+          </div>
+
+          <div class="mt-4">
+            <div class="card">
+              <div class="kpi">
+                <strong>2</strong>
+                <span>filósofos — diálogo entre patrística e escolástica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-inner">
+            <div class="illustration">
+              <!-- simples ilustração SVG simbólica -->
+              <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <g fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.2">
+                  <rect x="48" y="34" width="504" height="382" rx="18"/>
+                </g>
+                <g fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2">
+                  <path d="M120 120c40-30 160-30 220 0s120 60 160 40" stroke-linecap="round"/>
+                </g>
+                <g fill="rgba(255,255,255,0.06)">
+                  <circle cx="120" cy="340" r="12"/>
+                  <circle cx="480" cy="340" r="12"/>
+                </g>
+              </svg>
+            </div>
+            <div>
+              <h3 class="mb-0">Leia trechos sugeridos</h3>
+              <p class="mt-2">Confissões; A Cidade de Deus; Suma Teológica; Comentários às Sentenças — seleções comentadas para estudo.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="biografias">
+      <div class="section-subhead">
+        <div>
+          <h2 class="section-title">Biografias</h2>
+          <p class="section-desc">Resumo das trajetórias pessoais e intelectuais — contextos históricos, conversões e instituições.</p>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <h3>Santo Agostinho (354–430)</h3>
+          <p class="mt-2">Nascido em Tagaste (atual Argélia), Agostinho foi inicialmente maniqueísta e cético. Sua conversão ao cristianismo é narrada nas <em>Confissões</em>, obra que combina autobiografia e reflexão teológica. Bispo de Hipona, enfrentou debates sobre graça, livre-arbítrio e a natureza do mal. Sua influência atravessa a patrística, filosofia medieval e teologia moderna.</p>
+
+          <h4 class="mt-3">Pontos chave</h4>
+          <ul>
+            <li>Teoria da vontade e da graça</li>
+            <li>Doutrina do pecado original</li>
+            <li>Escrita confessional e introspectiva</li>
+          </ul>
+        </div>
+
+        <div class="card reveal">
+          <h3>São Tomás de Aquino (1225–1274)</h3>
+          <p class="mt-2">Natural da Itália, Tomás articulou a síntese entre a filosofia aristotélica e a doutrina cristã. Dominicano, professor na Universidade de Paris, escreveu a <em>Suma Teológica</em>, uma enorme sistematização da teologia cristã baseada em método escolástico — questões, objeções e respostas racionais que visavam mostrar a coerência da fé.</p>
+
+          <h4 class="mt-3">Pontos chave</h4>
+          <ul>
+            <li>Integração da razão e da fé</li>
+            <li>Provas da existência de Deus (as "Cinco Vias")</li>
+            <li>Teoria do direito natural</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="obras">
+      <div class="section-subhead">
+        <div>
+          <h2 class="section-title">Obras principais</h2>
+          <p class="section-desc">Textos essenciais para entender o pensamento e a repercussão histórica.</p>
+        </div>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h4>Confissões — Santo Agostinho</h4>
+          <p>Autobiografia teológica que combina memória, filosofia e oração. Texto fundamental para a compreensão da interioridade e da conversão.</p>
+        </div>
+
+        <div class="card reveal">
+          <h4>A Cidade de Deus — Santo Agostinho</h4>
+          <p>Reflexão sobre história, pólis e destino das sociedades comparando a cidade terrena e a cidade divina.</p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Suma Teológica — São Tomás</h4>
+          <p>Compêndio sistemático da teologia cristã: ética, metafísica, Cristo, sacramentos e as provas racionais da fé.</p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Comentário às Sentenças — São Tomás</h4>
+          <p>Textos formativos em que Tomás responde a questões das leituras escolásticas e desenvolve argumentos teológicos.</p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Outros escritos</h4>
+          <p>Cartas, sermões e tratados filosóficos que completam o panorama intelectual de ambos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparacao">
+      <div class="section-subhead">
+        <div>
+          <h2 class="section-title">Comparação — principais diferenças e convergências</h2>
+          <p class="section-desc">Uma leitura temática para perceber como patrística e escolástica resolveram problemas semelhantes de formas distintas.</p>
+        </div>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h4>Relação razão e fé</h4>
+          <p>Agostinho valoriza a luz interior e a revelação; Tomás prioriza a investigação racional e a filosofia natural como via para confirmar verdades da fé.</p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Cosmologia e metafísica</h4>
+          <p>Agostinho dialoga menos com filosofia natural sistemática; Tomás retoma Aristóteles para construir metafísica e causa final das coisas.</p>
+        </div>
+
+        <div class="card reveal">
+          <h4>Ética</h4>
+          <p>Ambos discutem o bem e a ordem moral, mas Tomás estrutura uma teoria do direito natural que marca a filosofia política; Agostinho enfatiza a orientação interior e o amor ordenado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="section-subhead">
+        <div>
+          <h2 class="section-title">Linha do tempo</h2>
+          <p class="section-desc">Marcos biográficos e obras-chave.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>354</h4>
+            <p>Nascimento de Agostinho em Tagaste (Numídia).</p>
+          </div>
+
+          <div class="timeline-item">
+            <h4>397–426</h4>
+            <p>Período em que Agostinho escreve as <em>Confissões</em> e muitos tratados enquanto bispo de Hipona.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h4>1225</h4>
+            <p>Nascimento de Tomás de Aquino na Itália (c. Roccasecca).</p>
+          </div>
+
+          <div class="timeline-item">
+            <h4>1265–1274</h4>
+            <p>Redação da <em>Suma Teológica</em> (trabalhada até sua morte em 1274).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+          <div class="mt-4">
+          
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Filosofia Clássica</h4>
+          <p class="copyright">Compilação educativa — textos públicos e traduções. Uso para estudo e ensino.</p>
+        </div>
+
+        <div>
+          <h5>Links úteis</h5>
+          <ul>
+            <li><a href="#obras">Obras</a></li>
+            <li><a href="#biografias">Biografias</a></li>
+            <li><a href="#timeline">Linha do Tempo</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5>Créditos</h5>
+          <p>Feito com ❤️ para estudos; adapte e cite fontes primárias ao usar trechos.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrawer() {
+      const d = document.getElementById('drawer');
+      d.classList.toggle('open');
+      d.setAttribute('aria-hidden', !d.classList.contains('open'));
+    }
+
+    // reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => io.observe(r));
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert('Obrigado! Sua mensagem foi recebida (simulação).');
+      e.target.reset();
+    }
+  </script>
+<button class="btn btn-primary" type="" onclick="window.history.back()">Voltar</button>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estoicismo — Harmonia entre o Ser Humano e a Ordem Natural</title>
+  <meta name="description" content="Site introdutório sobre o Estoicismo: princípios, práticas diárias e a busca pela harmonia com a ordem natural." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estoicismo.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo" aria-label="Logotipo Estoicismo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="url(#g)" />
+          <path d="M8 12c1.5-3 6-3 8 0" />
+          <path d="M8 16c2-3 6-3 8 0" />
+        </svg>
+        <span>Estoicismo</span>
+      </div>
+
+      <nav class="menu" aria-label="Navegação principal">
+        <a href="#principios">Princípios</a>
+        <a href="#praticas">Práticas</a>
+        <a href="#historia">História</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div style="display:flex; gap:12px; align-items:center">
+        <a class="cta-btn" href="#praticas">Comece hoje</a>
+        <button class="hamb" aria-label="Abrir menu" onclick="toggleDrawer()">☰</button>
+      </div>
+    </div>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="#principios">Princípios</a>
+      <a href="#praticas">Práticas</a>
+      <a href="#historia">História</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid-hero">
+        <div>
+          <div class="tag">Estoicismo • Harmonia</div>
+          <h1>Viver em sintonia com a <span style="background:linear-gradient(90deg,#b35009,white);-webkit-background-clip:text;background-clip:text;color:transparent">ordem natural</span></h1>
+          <p class="lead">O estoicismo oferece ferramentas práticas para alinhar razão, virtude e ação ao fluxo do mundo — cultivando serenidade, coragem e responsabilidade ecológica.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#praticas">Práticas diárias</a>
+            <a class="btn btn-outline" href="#historia">Linha do tempo</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" role="note" aria-label="Citação estoica">
+          <div class="hero-card-inner">
+            <div class="illustration" aria-hidden="true">
+              <img src="epicteto-frases.jpg" alt="">
+            </div>
+
+            <div>
+              <blockquote style="margin:0; font-weight:700; font-size:18px">“Não são as coisas que nos perturbam, mas as opiniões que temos sobre elas.”</blockquote>
+              <p class="mt-2" style="color:var(--muted); margin:0">— Epicteto</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="principios">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Princípios centrais</h2>
+          <p class="section-desc">As quatro virtudes clássicas, a dicotomia do controle e o viver segundo a Natureza formam o núcleo prático do estoicismo.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>SABEDORIA</h3>
+            <p class="mt-2">Clareza de julgamento: distinguir o que depende de nós do que não depende, e agir com prudência.</p>
+          </article>
+          <article class="card">
+            <h3>CORAGEM</h3>
+            <p class="mt-2">A coragem prática que enfrenta perdas, dor e incerteza com dignidade.</p>
+          </article>
+          <article class="card">
+            <h3>JUSTIÇA</h3>
+            <p class="mt-2">Considerar o bem comum: somos parte de uma rede humana e natural.</p>
+          </article>
+          <article class="card">
+            <h3>TEMPERANÇA</h3>
+            <p class="mt-2">Medida e autocontrole — agir por princípios, não por impulsos.</p>
+          </article>
+          <article class="card">
+            <h3>DICOTOMIA DE CONTROLE</h3>
+            <p class="mt-2">Foque no que você pode controlar (atitudes, julgamentos, ações) e aceite o resto.</p>
+          </article>
+          <article class="card">
+            <h3>VIVER SEGUNDO A NATUREZA</h3>
+            <p class="mt-2">Alinhar-se ao logos do mundo — cooperação com o ciclo maior, não resistência cega.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="praticas">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Práticas diárias</h2>
+          <p class="section-desc">Exercícios simples para incorporar o pensamento estoico na sua rotina.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>JORNAL MATINAL</h3>
+            <p class="mt-2">Defina intenções: o que depende de você e qual virtude você pratica hoje.</p>
+          </article>
+          <article class="card">
+            <h3> PRÉMEDITATIO MALORUM</h3>
+            <p class="mt-2">Imagine perdas e contratempos para reduzir surpresa e aumentar resiliência.</p>
+          </article>
+          <article class="card">
+            <h3>REVISÃO NOTURNA</h3>
+            <p class="mt-2">Revise escolhas do dia: onde agi bem? Onde posso melhorar?</p>
+          </article>
+          <article class="card">
+            <h3>MOMENTO DE NATUREZA</h3>
+            <p class="mt-2">Reserve minutos para observar o vivo ao redor — reconecte ritmo interno e externo.</p>
+          </article>
+          <article class="card">
+            <h3>FOCO NO PAPEL</h3>
+            <p class="mt-2">Atue de acordo com seu papel (pai, colega, cidadão) e não segundo caprichos.</p>
+          </article>
+          <article class="card">
+            <h3>VIRTUDE MÍNIMA</h3>
+            <p class="mt-2">Escolha uma pequena ação virtuosa e execute-a hoje, sem esperar condições perfeitas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Linha do tempo</h2>
+          <p class="section-desc">Breve histórico para situar as ideias e seus representantes.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item card02">
+            <h4>c. 300 a.C. — Zenão de Cício</h4>
+            <p class="mt-2">Fundador da escola, na Stoa Poikílē em Atenas.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>Séc. I d.C. — Sêneca</h4>
+            <p class="mt-2">Ensina ética prática no Império Romano, cartas e ensaios sobre a vida virtuosa.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>Séc. II d.C. — Epicteto</h4>
+            <p class="mt-2">Discípulo e professor que enfatizou a dicotomia do controle.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>121–180 d.C. — Marco Aurélio</h4>
+            <p class="mt-2">Autor das <em>Meditations</em>, diário de reflexão e serviço público.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Estoicismo</h4>
+        <p class="copyright">© <span id="year"></span> — filosofia e saberes tradicionais: caminhos para a sustentabilidade em tempos de crise climática.</p>
+      </div>
+      <div>
+       
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p style="color:var(--muted)">newsletter@estoicismo.ex</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleDrawer(){
+      const d = document.getElementById('drawer');
+      d.classList.toggle('open');
+      d.setAttribute('aria-hidden', d.classList.contains('open') ? 'false' : 'true');
+    }
+
+    // simples reveal on scroll
+    const r = document.querySelectorAll('.reveal');
+    function onScroll(){
+      r.forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60){ el.classList.add('in') }
+      })
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+  <a href="#" class="btn-voltar" onclick="history.back()">Voltar</a>
+</body>
+</html>

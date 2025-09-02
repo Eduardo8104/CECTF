@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saberes Ancestrais — Indígenas & Africanos</title>
+  <meta name="description" content="Introdução e documentação respeitosa sobre saberes indígenas e africanos ancestrais: práticas, cosmologias e caminhos de cuidado com a Terra." />
+<link rel="stylesheet" href="saberesindigenasea.css">
+  </head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo" aria-label="Logotipo Saberes">
+        <!-- símbolo abstrato que remete a conexão terra-céu -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" stroke="url(#g)" stroke-width="2" />
+          <path d="M10 44 C20 28 44 28 54 44" stroke="url(#g)" stroke-width="2" fill="none" />
+        </svg>
+        <span>Saberes Ancestrais</span>
+      </div>
+
+      <nav class="menu" aria-label="Navegação principal">
+        <a href="#principios">Princípios</a>
+        <a href="#praticas">Práticas</a>
+        <a href="#historia">História</a>
+        <a href="#recursos">Recursos</a>
+      </nav>
+
+      <div style="display:flex; gap:12px; align-items:center">
+        <a class="cta-btn" href="#recursos">Explorar</a>
+        <button class="hamb" aria-label="Abrir menu" onclick="toggleDrawer()">☰</button>
+      </div>
+    </div>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <a href="#principios">Princípios</a>
+      <a href="#praticas">Práticas</a>
+      <a href="#historia">História</a>
+      <a href="#recursos">Recursos</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid-hero">
+        <div>
+          <div class="tag">Saberes Indígenas & Africanos</div>
+          <h1>Harmonia ancestral: <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">conhecimento, cuidado e comunidade</span></h1>
+          <p class="lead">Apresentação respeitosa de práticas, cosmologias e modos de cuidado que atravessam povos indígenas e africanos — com foco na preservação, reciprocidade e sustentabilidade.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#praticas">Práticas vivas</a>
+            <a class="btn btn-outline" href="#recursos">Fontes & ética</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" role="note" aria-label="Resumo sobre saberes ancestrais">
+          <div class="hero-card-inner">
+            <div class="illustration" aria-hidden="true">
+              <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1">
+                    <stop offset="0" stop-color="#34d399" />
+                    <stop offset="1" stop-color="#0ea5e9" />
+                  </linearGradient>
+                </defs>
+                <rect width="600" height="400" fill="url(#g)" opacity="0.04" />
+                <g fill="none" stroke="url(#g)" stroke-width="2">
+                  <path d="M40 320 Q200 80 560 320" opacity="0.6" />
+                  <circle cx="120" cy="120" r="52" opacity="0.12" fill="#34d399" />
+                </g>
+              </svg>
+            </div>
+
+            <div>
+              <blockquote style="margin:0; font-weight:700; font-size:18px">"Conhecimento é cuidado: saberes que mantêm relações e territórios vivos."</blockquote>
+              <p class="mt-2" style="color:var(--muted); margin:0">— nota editorial</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="principios">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Princípios e valores</h2>
+          <p class="section-desc">Elementos recorrentes entre diferentes tradições: reciprocidade, territorialidade, oralidade e respeito pelas gerações futuras.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Reciprocidade</h3>
+            <p class="mt-2">Relações de troca entre pessoas, seres não humanos e territórios — cuidado mútuo como alicerce social.</p>
+          </article>
+          <article class="card">
+            <h3>Territorialidade</h3>
+            <p class="mt-2">Conhecimento situado: práticas que nascem de relações íntimas com lugares, rios, florestas e ciclos locais.</p>
+          </article>
+          <article class="card">
+            <h3>Oralidade e memória</h3>
+            <p class="mt-2">Transmissão por histórias, cantos, rituais e educação intergeracional — memória viva do cotidiano.</p>
+          </article>
+          <article class="card">
+            <h3>Cosmologias</h3>
+            <p class="mt-2">Visões de mundo que conectam humanos, ancestrais e forças não visíveis, orientando práticas e responsabilidades.</p>
+          </article>
+          <article class="card">
+            <h3>Sustentabilidade relacional</h3>
+            <p class="mt-2">Práticas de uso que mantêm a fecundidade do lugar, não apenas extraem recursos.</p>
+          </article>
+          <article class="card">
+            <h3>Autoria e cuidado</h3>
+            <p class="mt-2">Valorização dos detentores de saberes: direitos de autoria, consentimento e benefício mútuo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="praticas">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Práticas vivas</h2>
+          <p class="section-desc">Exemplos de práticas que expressam os princípios: manejo, cerimônia, remediação e educação comunitária.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Manejo tradicional</h3>
+            <p class="mt-2">Técnicas agrícolas e florestais que integram ciclos naturais e promovem diversidade.</p>
+          </article>
+          <article class="card">
+            <h3>Cerimônias de cuidado</h3>
+            <p class="mt-2">Rituais que renovam laços sociais e reequilibram relações com não humanos.</p>
+          </article>
+          <article class="card">
+            <h3>Transmissão oral</h3>
+            <p class="mt-2">Ensinos através de narrativas, prover modelos práticos e éticos para a vida comunitária.</p>
+          </article>
+          <article class="card">
+            <h3>Remédios e fitoterapias</h3>
+            <p class="mt-2">Conhecimentos sobre plantas e técnicas curativas adaptadas a contextos locais.</p>
+          </article>
+          <article class="card">
+            <h3>Educação comunitária</h3>
+            <p class="mt-2">Aprendizagem situada: jovens aprendem pelo fazer junto a mais velhos.</p>
+          </article>
+          <article class="card">
+            <h3>Práticas de governança</h3>
+            <p class="mt-2">Formas próprias de organização social que garantem decisões coletivas e cuidado do território.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Linha do tempo resumida</h2>
+          <p class="section-desc">Apontamentos históricos e fluxos de resistência e revitalização.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item card02">
+            <h4>Antes da colonização</h4>
+            <p class="mt-2">Sistemas de saberes locais organizando agricultura, medicina e cosmologias em milhares de territórios.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>Colonialismo e apagamento</h4>
+            <p class="mt-2">Violências que interromperam e marginalizaram práticas e línguas, mas não as apagaram.</p>
+          </div>
+
+          <div class="timeline-item card02">
+            <h4>Movimentos de resistência</h4>
+            <p class="mt-2">Recuperação linguística, demarcação de terras e valorização de saberes tradicionais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="container">
+        <div class="section-subhead">
+          <h2 class="section-title">Recursos & Ética</h2>
+          <p class="section-desc">Fontes recomendadas, lembretes éticos e orientações para pesquisa respeitosa.</p>
+        </div>
+
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Princípios éticos</h3>
+            <ul class="mt-2">
+              <li>Obter consentimento informados e contínuos.</li>
+              <li>Reconhecer autoria e dar retorno às comunidades.</li>
+              <li>Não extrair saberes para lucro sem benefício compartilhado.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Leituras e acervos</h3>
+            <p class="mt-2">Sugestões: trabalhos de lideranças indígenas, estudos de antropologia crítica e plataformas de acervos comunitários.</p>
+          </div>
+
+          <div class="card">
+            <h3>Como colaborar</h3>
+            <p class="mt-2">Procure parcerias longas, apoio a iniciativas locais e formas de coautoria que respeitem protocolos culturais.</p>
+          </div>
+
+          <div class="card">
+            <h3>Contatos</h3>
+            <p class="mt-2">Se você representa uma comunidade e quer colaborar, escreva para: contato@saberes.ancestrais</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Saberes Ancestrais</h4>
+        <p class="copyright">© <span id="year"></span> — Respeito, coautoria e reparação.</p>
+      </div>
+      <div>
+        <h4>Recursos</h4>
+        <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
+          <li><a href="#">Acervos comunitários</a></li>
+          <li><a href="#">Protocolos de pesquisa ética</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p style="color:var(--muted)">contato@saberes.ancestrais</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleDrawer(){
+      const d = document.getElementById('drawer');
+      d.classList.toggle('open');
+      d.setAttribute('aria-hidden', d.classList.contains('open') ? 'false' : 'true');
+    }
+
+    // reveal on scroll
+    const r = document.querySelectorAll('.reveal');
+    function onScroll(){
+      r.forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60){ el.classList.add('in') }
+      })
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+  <button class="btn btn-primary" type="" onclick="window.history.back()">Voltar</button>
+</body>
+</html>
