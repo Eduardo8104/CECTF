@@ -11,11 +11,7 @@
   <header>
     <div class="container nav">
       <div class="logo" aria-label="Logotipo Saberes">
-        <!-- símbolo abstrato que remete a conexão terra-céu -->
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" stroke="url(#g)" stroke-width="2" />
-          <path d="M10 44 C20 28 44 28 54 44" stroke="url(#g)" stroke-width="2" fill="none" />
-        </svg>
+        <img src="Imgs/Ceara-2.png" alt="">
         <span>Saberes Ancestrais</span>
       </div>
 
@@ -116,14 +112,14 @@
         </div>
       </div>
     </section>
-
+    
     <section id="praticas">
       <div class="container">
         <div class="section-subhead">
           <h2 class="section-title">Práticas vivas</h2>
           <p class="section-desc">Exemplos de práticas que expressam os princípios: manejo, cerimônia, remediação e educação comunitária.</p>
         </div>
-
+        
         <div class="grid cols-3">
           <article class="card">
             <h3>MANEJO TRADICIONAL</h3>
@@ -170,7 +166,7 @@
               <li>Não extrair saberes para lucro sem benefício compartilhado.</li>
             </ul>
           </div>
-
+          
           <div class="card">
             <h3>Leituras e acervos</h3>
             <p class="mt-2">Sugestões: trabalhos de lideranças indígenas, estudos de antropologia crítica e plataformas de acervos comunitários.</p>
@@ -180,7 +176,7 @@
             <h3>Como colaborar</h3>
             <p class="mt-2">Procure parcerias longas, apoio a iniciativas locais e formas de coautoria que respeitem protocolos culturais.</p>
           </div>
-
+          
           <div class="card">
             <h3>Contatos</h3>
             <p class="mt-2">Se você representa uma comunidade e quer colaborar, escreva para: contato@saberes.ancestrais</p>
@@ -189,26 +185,31 @@
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h4>Saberes Ancestrais</h4>
-        <p class="copyright">© <span id="year"></span> — Respeito, coautoria e reparação.</p>
-      </div>
-      <div>
-        <h4>Recursos</h4>
-        <ul style="list-style:none; padding:0; margin:0; color:var(--muted)">
-          <li><a href="#">Acervos comunitários</a></li>
-          <li><a href="#">Protocolos de pesquisa ética</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contato</h4>
-        <p style="color:var(--muted)">contato@saberes.ancestrais</p>
-      </div>
-    </div>
-  </footer>
+  <a href="#" class="btn-voltar" onclick="history.back()">Voltar</a>
+<footer>
+        <div class="container footer-grid">
+            <div>
+                <div class="logo" aria-label="Ceará Científico">
+                    <img src="Imgs/Ceara-2.png" alt="" class="logo">
+                    <strong>Ceará Científico 2025</strong>
+                </div>
+                <p class="mt-2"> <strong>Filosofia e Saberes Tradicionais:</strong> Caminhos para a sustentabilidade em
+                    tempos de crise climática
+                <p class="copyright">© <span id="year"></span> CEARÁ CIENTIFICO. Todos os direitos reservados.</p>
+            </div>
+            <div>
+            </div>
+            <div>
+                <h4>Entre em Contato</h4>
+                <p>Telefone: (88) 3685-1188
+                </p>
+                <p>
+                    Email para contato:
+                    eeepdario.catunda@escola.ce.gov.br
+                </p>
+            </div>
+        </div>
+    </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -229,6 +230,6 @@
     window.addEventListener('scroll', onScroll);
     onScroll();
   </script>
-  <button class="btn btn-primary" type="" onclick="window.history.back()">Voltar</button>
+
 </body>
 </html>

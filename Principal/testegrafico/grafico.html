@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Pesquisa da Turma</title>
+  <meta name="description" content="Gráficos em HTML e CSS: gênero, idade, turma, curso e resultados de 3 perguntas." />
+  <style>
+    /*
+      ==========================================
+      DESIGN SYSTEM — Cores, tipografia, layout
+      ==========================================
+    */
+    :root {
+      --bg: #0f1222;
+      --surface: #171a2e;
+      --surface-2: #1f2340;
+      --text: #e9ecf8;
+      --muted: #a9b0d3;
+
+      /* Paleta dos dados (não precisa usar todas) */
+      --c1: #6ea8fe; /* azul */
+      --c2: #5ee0a0; /* verde */
+      --c3: #fdb06b; /* laranja */
+      --c4: #f77997; /* rosa */
+      --c5: #b98aff; /* roxo */
+      --c6: #ffd670; /* amarelo */
+
+      --radius: 18px;
+      --gap: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+            Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+            "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, #1a1f3d 0%, transparent 60%),
+                  radial-gradient(1300px 800px at 110% 10%, #222751 0%, transparent 50%),
+                  var(--bg);
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 16px 48px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gap);
+    }
+
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 3.2vw, 40px);
+      letter-spacing: 0.2px;
+    }
+    .subtitle { color: var(--muted); font-size: 0.95rem; }
+
+    .card {
+      background: linear-gradient(180deg,
+        color-mix(in oklab, var(--surface) 88%, transparent),
+        color-mix(in oklab, var(--surface-2) 96%, transparent));
+      border: 1px solid color-mix(in oklab, var(--surface-2) 78%, #1b1e36 22%);
+      border-radius: var(--radius);
+      padding: 16px 16px 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    }
+    .card h2 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .description { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+
+    .grid-6 { grid-column: span 6; }
+    .grid-4 { grid-column: span 4; }
+    .grid-8 { grid-column: span 8; }
+    .grid-12 { grid-column: 1 / -1; }
+
+    @media (max-width: 960px) {
+      .grid-6, .grid-8 { grid-column: 1 / -1; }
+      .grid-4 { grid-column: span 6; }
+    }
+    @media (max-width: 640px) {
+      .grid-4 { grid-column: 1 / -1; }
+    }
+
+    /*
+      ======================
+      COMPONENTES DE GRÁFICO
+      ======================
+      Obs.: Os valores são passados via CSS custom properties nas tags.
+    */
+
+    /* LEGENDAS */
+    .legend { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: 10px; }
+    .legend .item { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .92rem; }
+    .dot { inline-size: 12px; block-size: 12px; border-radius: 99px; border: 2px solid #0003; }
+
+    /* PIE / DONUT */
+    .pie {
+      width: 220px; height: 220px; border-radius: 50%;
+      background:
+        conic-gradient(
+          var(--c1) 0 calc(var(--p1)*1%),
+          var(--c2) 0 calc((var(--p1) + var(--p2))*1%),
+          var(--c3) 0 calc((var(--p1) + var(--p2) + var(--p3))*1%),
+          var(--c4) 0 calc((var(--p1) + var(--p2) + var(--p3) + var(--p4))*1%),
+          var(--c5) 0 calc((var(--p1) + var(--p2) + var(--p3) + var(--p4) + var(--p5))*1%),
+          var(--c6) 0 100%
+        );
+      position: relative;
+      margin: 6px auto 4px;
+      box-shadow: inset 0 0 0 10px color-mix(in oklab, var(--surface) 80%, transparent);
+    }
+    .pie.donut::before { /* furo do donut */
+      content: ""; position: absolute; inset: 16%; border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, #1f2346 0%, #151935 60%);
+      box-shadow: 0 6px 20px rgba(0,0,0,.35) inset;
+    }
+    .pie-label {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-weight: 800; font-size: 1.1rem; color: var(--text);
+    }
+
+    /* BARRAS HORIZONTAIS (categorias) */
+    .hbars { display: grid; gap: 8px; margin-top: 8px; }
+    .hbars .row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+    .hbars .name { color: var(--muted); font-size: .95rem; }
+    .hbars .bar {
+      height: 12px; border-radius: 999px; overflow: hidden; background: #11152e;
+      outline: 1px solid #0006;
+    }
+    .hbars .bar > span { display: block; height: 100%; width: calc(var(--v) * 1%);
+      background: linear-gradient(90deg, color-mix(in oklab, var(--color) 90%, #ffffff 10%), var(--color));
+    }
+    .hbars .value { font-variant-numeric: tabular-nums; opacity: .85; }
+
+    /* BARRAS VERTICAIS (colunas) */
+    .vbars {
+      display: grid; grid-template-columns: repeat(var(--cols, 6), 1fr); gap: 12px; align-items: end;
+      margin-top: 14px; padding: 6px 2px 0;
+    }
+    .vbars .col { background: #11152e; border-radius: 12px; position: relative; outline: 1px solid #0006; height: 180px; }
+    .vbars .col > span {
+      position: absolute; bottom: 0; left: 0; right: 0; height: calc(var(--v) * 1%);
+      background: linear-gradient(180deg, var(--color), color-mix(in oklab, var(--color) 85%, #000 15%));
+      border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;
+    }
+    .vbars .label { text-align: center; margin-top: 6px; font-size: .9rem; color: var(--muted); }
+    .vbars .value { text-align: center; margin-top: 6px; font-weight: 700; }
+
+    /* CARTA DE 3 PERGUNTAS — donuts pequenos */
+    .q-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 640px) { .q-grid { grid-template-columns: 1fr; } }
+    .q {
+      display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center;
+      padding: 10px; border-radius: 14px; background: #121536; outline: 1px solid #0006;
+    }
+    .q .mini-pie { width: 100px; height: 100px; border-radius: 50%; position: relative;
+      background:
+        conic-gradient(
+          var(--c1) 0 calc(var(--yes)*1%),
+          var(--c3) 0 calc((var(--yes) + var(--maybe))*1%),
+          var(--c4) 0 100%);
+    }
+    .q .mini-pie::before { content: ""; position: absolute; inset: 22%; border-radius: 50%; background: var(--surface); }
+    .q .mini-pie .mini-label { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; }
+    .q .text { color: var(--muted); font-size: .95rem; }
+    .q .legend-mini { display: flex; gap: 10px; margin-top: 8px; }
+
+    /* Rodapé */
+    footer { grid-column: 1 / -1; margin-top: 24px; color: var(--muted); font-size: .9rem; text-align: center; }
+
+    /* Animações leves (opcional) */
+    .card, .pie, .vbars .col > span, .hbars .bar > span { transition: transform .3s ease, filter .3s ease, height .7s ease, width .7s ease; }
+    .card:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div>
+        <h1>Dashboard da Pesquisa — Exemplo</h1>
+        <div class="subtitle">Edite os números direto no HTML (propriedades CSS — <em>style</em> de cada bloco).</div>
+      </div>
+    </header>
+
+    <!-- ===================== GÊNERO (Pizza / Donut) ===================== -->
+    <section class="card grid-6" aria-labelledby="h-genero">
+      <h2 id="h-genero">Distribuição por Gênero</h2>
+      <p class="description">Exemplo: Masculino 48%, Feminino 47%, Outros 5%.</p>
+      <!-- Passe os percentuais usando --p1, --p2, --p3 (somam 100) -->
+      <div class="pie donut" style="--p1:48; --p2:47; --p3:5;">
+        <div class="pie-label">100%</div>
+      </div>
+      <div class="legend" role="list" aria-label="Legenda Gênero">
+        <span class="item" role="listitem"><span class="dot" style="background:var(--c1)"></span>Masculino</span>
+        <span class="item" role="listitem"><span class="dot" style="background:var(--c2)"></span>Feminino</span>
+        <span class="item" role="listitem"><span class="dot" style="background:var(--c3)"></span>Outros</span>
+      </div>
+    </section>
+
+    <!-- ===================== IDADE (Barras horizontais) ===================== -->
+    <section class="card grid-6" aria-labelledby="h-idade">
+      <h2 id="h-idade">Faixa Etária</h2>
+      <p class="description">Cada barra representa a porcentagem em cada faixa.</p>
+      <div class="hbars" role="list" aria-label="Distribuição por idade">
+        <!-- Ajuste --v (0–100) e opcionalmente mude --color -->
+        <div class="row" role="listitem">
+          <div class="name">14–15</div>
+          <div class="bar" style="--color: var(--c1)"><span style="--v: 35"></span></div>
+          <div class="value">35%</div>
+        </div>
+        <div class="row" role="listitem">
+          <div class="name">16–17</div>
+          <div class="bar" style="--color: var(--c5)"><span style="--v: 44"></span></div>
+          <div class="value">44%</div>
+        </div>
+        <div class="row" role="listitem">
+          <div class="name">18+</div>
+          <div class="bar" style="--color: var(--c3)"><span style="--v: 21"></span></div>
+          <div class="value">21%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TURMA (Barras verticais) ===================== -->
+    <section class="card grid-8" aria-labelledby="h-turma">
+      <h2 id="h-turma">Participação por Turma</h2>
+      <p class="description">Exemplo com 6 turmas. Ajuste os valores em %.</p>
+      <div class="vbars" style="--cols:6" aria-label="Barras verticais por turma">
+        <div>
+          <div class="col"><span style="--v: 65; --color: var(--c1)"></span></div>
+          <div class="value">65%</div>
+          <div class="label">1ºA</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 40; --color: var(--c2)"></span></div>
+          <div class="value">40%</div>
+          <div class="label">1ºB</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 52; --color: var(--c5)"></span></div>
+          <div class="value">52%</div>
+          <div class="label">2ºA</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 30; --color: var(--c3)"></span></div>
+          <div class="value">30%</div>
+          <div class="label">2ºB</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 18; --color: var(--c4)"></span></div>
+          <div class="value">18%</div>
+          <div class="label">3ºA</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 72; --color: var(--c6)"></span></div>
+          <div class="value">72%</div>
+          <div class="label">3ºB</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CURSO (Barras horizontais compactas) ===================== -->
+    <section class="card grid-4" aria-labelledby="h-curso">
+      <h2 id="h-curso">Cursos</h2>
+      <p class="description">Exemplo com 4 cursos mais escolhidos.</p>
+      <div class="hbars" aria-label="Distribuição por curso">
+        <div class="row">
+          <div class="name">Informática</div>
+          <div class="bar" style="--color: var(--c1)"><span style="--v: 45"></span></div>
+          <div class="value">45%</div>
+        </div>
+        <div class="row">
+          <div class="name">Enfermagem</div>
+          <div class="bar" style="--color: var(--c2)"><span style="--v: 30"></span></div>
+          <div class="value">30%</div>
+        </div>
+        <div class="row">
+          <div class="name">Administração</div>
+          <div class="bar" style="--color: var(--c3)"><span style="--v: 18"></span></div>
+          <div class="value">18%</div>
+        </div>
+        <div class="row">
+          <div class="name">Logística</div>
+          <div class="bar" style="--color: var(--c5)"><span style="--v: 7"></span></div>
+          <div class="value">7%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 3 PERGUNTAS (Donuts por pergunta) ===================== -->
+    <section class="card grid-12" aria-labelledby="h-perguntas">
+      <h2 id="h-perguntas">Resultados — 3 Perguntas</h2>
+      <p class="description">Cada pergunta mostra a divisão entre <strong>Sim</strong>, <strong>Talvez</strong> e <strong>Não</strong>.</p>
+      <div class="q-grid" role="group" aria-label="Resultados por pergunta">
+        <!-- PERGUNTA 1 -->
+        <div class="q">
+          <!-- Ajuste --yes, --maybe e --no (somam 100) -->
+          <div class="mini-pie" style="--yes:62; --maybe:23;">
+            <div class="mini-label">Q1</div>
+          </div>
+          <div>
+            <div class="text"><strong>Pergunta 1:</strong> Você recomendaria o evento para um colega?</div>
+            <div class="legend-mini">
+              <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim (62%)</span>
+              <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez (23%)</span>
+              <span class="item"><span class="dot" style="background:var(--c4)"></span>Não (15%)</span>
+            </div>
+          </div>
+        </div>
+        <!-- PERGUNTA 2 -->
+        <div class="q">
+          <div class="mini-pie" style="--yes:40; --maybe:32;">
+            <div class="mini-label">Q2</div>
+          </div>
+          <div>
+            <div class="text"><strong>Pergunta 2:</strong> O conteúdo atendeu às expectativas?</div>
+            <div class="legend-mini">
+              <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim (40%)</span>
+              <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez (32%)</span>
+              <span class="item"><span class="dot" style="background:var(--c4)"></span>Não (28%)</span>
+            </div>
+          </div>
+        </div>
+        <!-- PERGUNTA 3 -->
+        <div class="q">
+          <div class="mini-pie" style="--yes:55; --maybe:18;">
+            <div class="mini-label">Q3</div>
+          </div>
+          <div>
+            <div class="text"><strong>Pergunta 3:</strong> Voltaria no próximo semestre?</div>
+            <div class="legend-mini">
+              <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim (55%)</span>
+              <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez (18%)</span>
+              <span class="item"><span class="dot" style="background:var(--c4)"></span>Não (27%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="legend" style="margin-top: 14px">
+        <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim</span>
+        <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez</span>
+        <span class="item"><span class="dot" style="background:var(--c4)"></span>Não</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <strong>Como editar os dados:</strong> procure pelos atributos <code>style</code> nos blocos dos gráficos
+        e altere os números das variáveis (<code>--p1</code>, <code>--v</code>, <code>--yes</code>, etc.).
+        Todos os exemplos acima funcionam apenas com HTML + CSS (sem JavaScript).
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

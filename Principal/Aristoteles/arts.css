@@ -86,6 +86,10 @@ header {
   justify-content: space-between;
   padding: 14px 0;
 }
+.logo {
+  display: flex;
+  width: 45px;
+}
 
 .logo {
   display: inline-flex;
@@ -168,7 +172,11 @@ header {
     border-bottom: 1px solid --border;
   }
 }
-
+.arst {
+  display: flex;
+  margin-right: 865px;
+  font-size: large;
+}
 /*
       =============================
       HERO

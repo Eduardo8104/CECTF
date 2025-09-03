@@ -368,19 +368,12 @@ section {
     grid-template-columns: 1fr;
   }
 }
-.pizza {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: conic-gradient(
-        #ff6b6b 25%, 
-        #4ecdc4 0deg 0deg,
-        #ffe66d 0deg 0deg,
-        #5f27cd 0deg 0deg
-      );
-      animation: animarPizza 3s forwards;
-    }
+.forms {width: 300px;
+  height: 20px;
 
+  /* Centraliza horizontalmente */
+  margin: 0 auto;
+}
     
 
 .card {

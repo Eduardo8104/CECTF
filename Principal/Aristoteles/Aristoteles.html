@@ -10,21 +10,18 @@
 
   <!-- ================= NAVBAR ================= -->
   <header>
-    <div class="container nav">
-      <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M8 12h8M12 8v8"/>
-        </svg>
-        Aristóteles
-      </div>
-      <nav class="menu">
-        <a href="#virtude">Vida Virtuosa</a>
-        <a href="#bem-comum">Bem Comum</a>
-        <a href="#politica">Política</a>
-      </nav>
-    </div>
-  </header>
+        <div class="container nav">
+            <a class="logo" href="#inicio" aria-label="Ceará Científico — voltar ao início">
+               <img src="Imgs/Ceara-2.png" alt="" class="logo">
+                Ceará Científico 2025
+            </a>
+            
+                <button class="cta-btn"
+                    onclick="document.getElementById('newsletter').scrollIntoView({behavior:'smooth'})" >Aristoteles</button>
+            </nav>
+        </div>
+
+    </header>
 
   <!-- ================= HERO ================= -->
   <section class="hero">
@@ -44,7 +41,7 @@
       <div class="hero-card">
         <div class="hero-card-inner">
           <div class="illustration">
-            <img src="7f43a1d4d5f0a14c0db635b4631aa6c5.jpg" alt="Estátua de Aristóteles">
+            <img src="Imgs/7f43a1d4d5f0a14c0db635b4631aa6c5.jpg" alt="Estátua de Aristóteles">
           </div>
         </div>
       </div>
@@ -135,26 +132,30 @@
 
   <a href="#" class="btn-voltar" onclick="history.back()">Voltar</a>
   <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h3>Aristóteles</h3>
-        <p class="mt-2">O bem comum e a vida virtuosa como fundamentos da felicidade humana.</p>
-      </div>
-      <div>
-        <h4>Seções</h4>
-        <a href="#virtude">Vida Virtuosa</a><br>
-        <a href="#bem-comum">Bem Comum</a><br>
-        <a href="#politica">Política</a><br>
-      </div>
-      <div>
-        <h4>Contato</h4>
-        <p>Email: exemplo@site.com</p>
-        <p>Telefone: (00) 0000-0000</p>
-      </div>
-    </div>
-    <p class="copyright center">© 2025 Aristóteles | O Bem Comum e a Vida Virtuosa</p>
-  </footer>
+ <footer>
+        <div class="container footer-grid">
+            <div>
+                <div class="logo" aria-label="Ceará Científico">
+                    <img src="Imgs/Ceara-2.png" alt="" class="logo">
+                    <strong>Ceará Científico 2025</strong>
+                </div>
+                <p class="mt-2"> <strong>Filosofia e Saberes Tradicionais:</strong> Caminhos para a sustentabilidade em
+                    tempos de crise climática
+                <p class="copyright">© <span id="year"></span> CEARÁ CIENTIFICO. Todos os direitos reservados.</p>
+            </div>
+            <div>
+            </div>
+            <div>
+                <h4>Entre em Contato</h4>
+                <p>Telefone: (88) 3685-1188
+                </p>
+                <p>
+                    Email para contato:
+                    eeepdario.catunda@escola.ce.gov.br
+                </p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

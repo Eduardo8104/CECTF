@@ -86,6 +86,11 @@ header {
   justify-content: space-between;
   padding: 14px 0;
 }
+.logo {
+  display: flex;
+  width: 45px;
+}
+
 
 .logo {
   display: inline-flex;
