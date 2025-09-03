@@ -1,0 +1,366 @@
+/*
+      ==========================================
+      DESIGN SYSTEM — Cores, tipografia, layout
+      ==========================================
+    */
+:root {
+    --bg: #2C1E14;
+    --surface: #4A3324;
+    /* cartões, barras */
+    --surface-2: #70513A;
+    /* variação leve (argila/madeira) */
+    --text: #e9ecf8;
+    --muted: #a9b0d3;
+
+    /* Paleta dos dados (não precisa usar todas) */
+    --c1: #d49901;
+    /* azul */
+    --c2: #da7000;
+    /* verde */
+    --c3: #fdb06b;
+    /* laranja */
+    --c4: #f77997;
+    /* rosa */
+    --c5: #b98aff;
+    /* roxo */
+    --c6: #ffd670;
+    /* amarelo */
+
+    --radius: 18px;
+    --gap: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+        Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+        "Segoe UI Emoji";
+    color: var(--text);
+    background: radial-gradient(1200px 600px at 10% -10%, #2C1E14 0%, transparent 60%),
+        radial-gradient(1300px 800px at 110% 10%, #68462e 0%, transparent 50%),
+        var(--bg);
+}
+
+.wrapper {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 16px 48px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap);
+}
+
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(22px, 3.2vw, 40px);
+    letter-spacing: 0.2px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.card {
+    background: linear-gradient(180deg,
+            color-mix(in oklab, var(--surface) 88%, transparent),
+            color-mix(in oklab, var(--surface-2) 96%, transparent));
+    border: 1px solid color-mix(in oklab, var(--surface-2) 78%, #1b1e36 22%);
+    border-radius: var(--radius);
+    padding: 16px 16px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+}
+
+.card h2 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.description {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.grid-6 {
+    grid-column: span 6;
+}
+
+.grid-4 {
+    grid-column: span 4;
+}
+
+.grid-8 {
+    grid-column: span 8;
+}
+
+.grid-12 {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 960px) {
+
+    .grid-6,
+    .grid-8 {
+        grid-column: 1 / -1;
+    }
+
+    .grid-4 {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid-4 {
+        grid-column: 1 / -1;
+    }
+}
+
+/*
+      ======================
+      COMPONENTES DE GRÁFICO
+      ======================
+      Obs.: Os valores são passados via CSS custom properties nas tags.
+    */
+
+/* LEGENDAS */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 10px;
+}
+
+.legend .item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: .92rem;
+}
+
+.dot {
+    inline-size: 12px;
+    block-size: 12px;
+    border-radius: 99px;
+    border: 2px solid #25170d;
+}
+
+/* PIE / DONUT */
+.pie {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      var(--c1) 0 calc(var(--p1)*1%),
+      var(--c2) 0 100%
+    );
+  position: relative;
+  margin: 6px auto 4px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+
+.pie.donut::before {
+    /* furo do donut */
+    content: "";
+    position: absolute;
+    inset: 16%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #2C1E14 0%,#27160a 60%);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .35) inset;
+}
+
+.pie-label {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+/* BARRAS HORIZONTAIS (categorias) */
+.hbars {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.hbars .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.hbars .name {
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+.hbars .bar {
+    height: 12px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--bg);
+    outline: 1px solid #0006;
+}
+
+.hbars .bar>span {
+    display: block;
+    height: 100%;
+    width: calc(var(--v) * 1%);
+    background: linear-gradient(90deg, color-mix(in oklab, var(--color) 90%, #ffffff 10%), var(--color));
+}
+
+.hbars .value {
+    font-variant-numeric: tabular-nums;
+    opacity: .85;
+}
+
+/* BARRAS VERTICAIS (colunas) */
+.vbars {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 6), 1fr);
+    gap: 12px;
+    align-items: end;
+    margin-top: 14px;
+    padding: 6px 2px 0;
+}
+
+.vbars .col {
+    background: var(--bg);
+    border-radius: 12px;
+    position: relative;
+    outline: 1px solid #0006;
+    height: 180px;
+}
+
+.vbars .col>span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--v) * 1%);
+    background: linear-gradient(180deg, var(--color), color-mix(in oklab, var(--color) 85%, #000 15%));
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.vbars .label {
+    text-align: center;
+    margin-top: 6px;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.vbars .value {
+    text-align: center;
+    margin-top: 6px;
+    font-weight: 700;
+}
+
+/* CARTA DE 3 PERGUNTAS — donuts pequenos */
+.q-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 640px) {
+    .q-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.q {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 14px;
+    background: var(--bg);
+    outline: 1px solid #0006;
+}
+
+.q .mini-pie {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    background:
+        conic-gradient(var(--c1) 0 calc(var(--yes)*1%),
+            var(--c3) 0 calc((var(--yes) + var(--maybe))*1%),
+            var(--c4) 0 100%);
+}
+
+.q .mini-pie::before {
+    content: "";
+    position: absolute;
+    inset: 22%;
+    border-radius: 50%;
+    background: var(--surface);
+}
+
+.q .mini-pie .mini-label {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+}
+
+.q .text {
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+.q .legend-mini {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* Rodapé */
+footer {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: .9rem;
+    text-align: center;
+}
+
+/* Animações leves (opcional) */
+.card,
+.pie,
+.vbars .col>span,
+.hbars .bar>span {
+    transition: transform .3s ease, filter .3s ease, height .7s ease, width .7s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
