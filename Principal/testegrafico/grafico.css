@@ -87,6 +87,7 @@ h1 {
     border-radius: var(--radius);
     padding: 16px 16px 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+    
 }
 
 .card h2 {
@@ -247,7 +248,7 @@ h1 {
     gap: 12px;
     align-items: end;
     margin-top: 14px;
-    padding: 6px 2px 0;
+    padding: 70px 2px 0;
 }
 
 .vbars .col {
@@ -256,6 +257,9 @@ h1 {
     position: relative;
     outline: 1px solid #0006;
     height: 180px;
+    
+
+    
 }
 
 .vbars .col>span {
@@ -294,7 +298,47 @@ h1 {
         grid-template-columns: 1fr;
     }
 }
+.q0102 {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--bg);
+  outline: 1px solid #0006;
+}
 
+.q0102 .mini-pie {
+  --total: calc(var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5));
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    var(--c1) 0% calc(var(--v1) / var(--total) * 100%),
+    var(--c2) calc(var(--v1) / var(--total) * 100%) calc((var(--v1) + var(--v2)) / var(--total) * 100%),
+    var(--c3) calc((var(--v1) + var(--v2)) / var(--total) * 100%) calc((var(--v1) + var(--v2) + var(--v3)) / var(--total) * 100%),
+    var(--c4) calc((var(--v1) + var(--v2) + var(--v3)) / var(--total) * 100%) calc((var(--v1) + var(--v2) + var(--v3) + var(--v4)) / var(--total) * 100%),
+    var(--c5) calc((var(--v1) + var(--v2) + var(--v3) + var(--v4)) / var(--total) * 100%) 100%
+  );
+}
+
+.q0102 .mini-pie::before {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.q0102 .mini-pie .mini-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
 .q {
     display: grid;
     grid-template-columns: 110px 1fr;

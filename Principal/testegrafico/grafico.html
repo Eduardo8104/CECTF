@@ -19,7 +19,7 @@
     <!-- ===================== GÊNERO (Pizza / Donut) ===================== -->
 <section class="card grid-6" aria-labelledby="h-genero">
   <h2 id="h-genero">Distribuição por Gênero</h2>
-  <p class="description">Exemplo: Masculino 60%, Feminino 40%.</p>
+  <p class="description"> Masculino 40.8%, Feminino 59.2%.</p>
 
   <div class="pie" style="--p1:60; --p2:40;"></div>
 
@@ -62,7 +62,6 @@
     <!-- ===================== TURMA (Barras verticais) ===================== -->
     <section class="card grid-8" aria-labelledby="h-turma">
       <h2 id="h-turma">Participação por Turma</h2>
-      <p class="description">Exemplo com 6 turmas. Ajuste os valores em %.</p>
       <div class="vbars" style="--cols:6" aria-label="Barras verticais por turma">
         <div>
           <div class="col"><span style="--v: 26.7; --color: var(--c1)"></span></div>
@@ -100,7 +99,7 @@
     <!-- ===================== CURSO (Barras horizontais compactas) ===================== -->
     <section class="card grid-4" aria-labelledby="h-curso">
       <h2 id="h-curso">Cursos</h2>
-      <p class="description">Exemplo com 4 cursos mais escolhidos.</p>
+      
       <div class="hbars" aria-label="Distribuição por curso">
         <div class="row">
           <div class="name">2° ANOS</div>
@@ -126,41 +125,58 @@
         </ul>
       </div>
     </section>
-
+    
     <!-- ===================== 3 PERGUNTAS (Donuts por pergunta) ===================== -->
     <section class="card grid-12" aria-labelledby="h-perguntas">
       <h2 id="h-perguntas">Resultados — 3 Perguntas</h2>
-      <p class="description">Cada pergunta mostra a divisão entre <strong>Sim</strong>, <strong>Talvez</strong> e <strong>Não</strong>.</p>
+      
       <div class="q-grid" role="group" aria-label="Resultados por pergunta">
         <!-- PERGUNTA 1 -->
-        <div class="q">
-          <!-- Ajuste --yes, --maybe e --no (somam 100) -->
-          <div class="mini-pie" style="--yes:62; --maybe:23;">
+        <div class="q0102">
+          <!-- Gráfico agora aceita 5 valores -->
+          <div class="mini-pie" style="--v1:1.5; --v2:7.6; --v3:30.9; --v4:34.7; --v5:25.2;">
             <div class="mini-label">Q1</div>
           </div>
+          
           <div>
-            <div class="text"><strong>Pergunta 1:</strong> Você recomendaria o evento para um colega?</div>
+            <div class="text">
+              <strong>Pergunta 1:</strong> Em uma escala de 1 a 5, como você avalia o quanto os projetos aumentaram o seu conhecimento sobre sustentabilidade?
+            </div>
             <div class="legend-mini">
-              <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim (62%)</span>
-              <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez (23%)</span>
-              <span class="item"><span class="dot" style="background:var(--c4)"></span>Não (15%)</span>
+              <span class="item"><span class="dot" style="background:var(--c1)"></span>1 (1.5%)</span> 
+              <br>
+              <span class="item"><span class="dot" style="background:var(--c2)"></span>2 (7.6%)</span>
+              <br>
+              <span class="item"><span class="dot" style="background:var(--c3)"></span>3 (30.9%)</span>
+              <br>
+              <span class="item"><span class="dot" style="background:var(--c4)"></span>4 (34.7%)</span>
+              <br>
+              <span class="item"><span class="dot" style="background:var(--c5)"></span>5 (25.2%)</span>
             </div>
           </div>
         </div>
         <!-- PERGUNTA 2 -->
-        <div class="q">
-          <div class="mini-pie" style="--yes:40; --maybe:32;">
-            <div class="mini-label">Q2</div>
-          </div>
-          <div>
-            <div class="text"><strong>Pergunta 2:</strong> O conteúdo atendeu às expectativas?</div>
-            <div class="legend-mini">
-              <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim (40%)</span>
-              <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez (32%)</span>
-              <span class="item"><span class="dot" style="background:var(--c4)"></span>Não (28%)</span>
-            </div>
-          </div>
-        </div>
+        <div class="q0102">
+  <!-- Gráfico agora aceita 5 valores -->
+  <div class="mini-pie" style="--v1:1.5; --v2:7.6; --v3:30.9; --v4:34.7; --v5:25.2;">
+    <div class="mini-label">Q1</div>
+  </div>
+
+  <div>
+    <div class="text">
+      <strong>Pergunta 1:</strong> Em uma escala de 1 a 5, como você avalia o quanto os projetos aumentaram o seu conhecimento sobre sustentabilidade?
+    </div>
+    <div class="legend-mini">
+      <span class="item"><span class="dot" style="background:var(--c1)"></span>1 (1.5%)</span>
+      <span class="item"><span class="dot" style="background:var(--c2)"></span>2 (7.6%)</span>
+      <span class="item"><span class="dot" style="background:var(--c3)"></span>3 (30.9%)</span>
+      <span class="item"><span class="dot" style="background:var(--c4)"></span>4 (34.7%)</span>
+      <span class="item"><span class="dot" style="background:var(--c5)"></span>5 (25.2%)</span>
+    </div>
+  </div>
+</div>
+
+      
         <!-- PERGUNTA 3 -->
         <div class="q">
           <div class="mini-pie" style="--yes:55; --maybe:18;">
