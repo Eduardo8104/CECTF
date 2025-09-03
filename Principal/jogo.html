@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tabuleiro Espiral Afro-Brasileiro</title>
+  <style>
+    :root {
+      --bg: #2C1E14;
+      --surface: #4A3324;
+      --surface-2: #70513A;
+      --text: #F5F3E7;
+      --muted: #C9C5B9;
+      --brand: #ffffff;
+      --brand-2: #ff8400;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--brand-2);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(5, 64px);
+      grid-template-rows: repeat(5, 64px);
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .square {
+      width: 64px;
+      height: 64px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid #1E120C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--muted);
+      position: relative;
+    }
+
+    .player {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: absolute;
+    }
+
+    .player-colors {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .color-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #2C1E14;
+      padding: 12px 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #info {
+      margin-top: 20px;
+      text-align: center;
+      max-width: 480px;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .board {
+        grid-template-columns: repeat(5, 48px);
+        grid-template-rows: repeat(5, 48px);
+      }
+      .square {
+        width: 48px;
+        height: 48px;
+        font-size: 12px;
+      }
+      .player {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tabuleiro Cultural em Espiral</h1>
+  <div class="player-colors" id="playerColors"></div>
+  <div id="board" class="board"></div>
+  <button onclick="rollDice()">🎲 Jogar Dado</button>
+  <p id="info">Jogador 1 começa!</p>
+
+  <script>
+    const board = document.getElementById("board");
+    const info = document.getElementById("info");
+    const playerColorsEl = document.getElementById("playerColors");
+
+    const gridSize = 5;
+    const totalSquares = gridSize * gridSize;
+
+    const numPlayers = 4;
+    const playerColors = ["#FF5555", "#0099FF", "#22CC88", "#FFCC00", "#AA66CC", "#00CCCC"];
+    const players = [];
+
+    for (let i = 0; i < numPlayers; i++) {
+      players.push({ id: i, position: 0, color: playerColors[i] });
+    }
+
+    let currentPlayerIndex = 0;
+    let gameEnded = false;
+
+    // Criação do tabuleiro com índice espiral
+    function generateSpiralIndices(n) {
+      const spiral = Array.from({ length: n }, () => Array(n).fill(null));
+      let dx = 1, dy = 0;
+      let x = 0, y = 0;
+      let dirChange = 0;
+
+      for (let i = 0; i < n * n; i++) {
+        spiral[y][x] = i;
+        if (x + dx >= n || x + dx < 0 || y + dy >= n || y + dy < 0 || spiral[y + dy][x + dx] !== null) {
+          dirChange++;
+          [dx, dy] = [[0,1], [-1,0], [0,-1], [1,0]][dirChange % 4];
+        }
+        x += dx;
+        y += dy;
+      }
+
+      return spiral;
+    }
+
+    const spiralIndices = generateSpiralIndices(gridSize);
+    const positionToCoord = {};
+    const coordToPosition = {};
+
+    // Criar os elementos do tabuleiro
+    for (let row = 0; row < gridSize; row++) {
+      for (let col = 0; col < gridSize; col++) {
+        const pos = spiralIndices[row][col];
+        const square = document.createElement("div");
+        square.className = "square";
+        square.id = `square-${pos}`;
+        square.innerText = pos + 1;
+        board.appendChild(square);
+
+        positionToCoord[pos] = { row, col };
+        coordToPosition[`${row},${col}`] = pos;
+      }
+    }
+
+    // Mostrar cores dos jogadores
+    players.forEach(player => {
+      const colorBox = document.createElement("div");
+      colorBox.className = "color-box";
+      colorBox.innerHTML = `<div class="color-dot" style="background-color:${player.color}"></div> Jogador ${player.id + 1}`;
+      playerColorsEl.appendChild(colorBox);
+    });
+
+    function renderPlayers() {
+      document.querySelectorAll(".square").forEach(sq => {
+        sq.innerHTML = sq.innerText;
+      });
+
+      players.forEach((player, index) => {
+        const square = document.getElementById(`square-${player.position}`);
+        const token = document.createElement("div");
+        token.className = "player";
+        token.style.backgroundColor = player.color;
+        token.style.top = `${4 + index * 18}px`;
+        token.style.left = `${4 + index * 18}px`;
+        square.appendChild(token);
+      });
+    }
+
+    renderPlayers();
+
+    function rollDice() {
+      if (gameEnded) {
+        info.innerText = "🎉 O jogo já terminou. Recarregue a página para jogar novamente.";
+        return;
+      }
+
+      const player = players[currentPlayerIndex];
+      const roll = Math.floor(Math.random() * 6) + 1;
+      info.innerText = `🎲 Jogador ${player.id + 1} tirou ${roll}`;
+
+      player.position += roll;
+      if (player.position >= totalSquares - 1) {
+        player.position = totalSquares - 1;
+        renderPlayers();
+        info.innerText = `🏆 Jogador ${player.id + 1} venceu o jogo!`;
+        gameEnded = true;
+        return;
+      }
+
+      renderPlayers();
+      currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+
+      setTimeout(() => {
+        info.innerText += `\nAgora é a vez do Jogador ${players[currentPlayerIndex].id + 1}`;
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
