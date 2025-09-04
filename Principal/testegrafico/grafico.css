@@ -89,6 +89,7 @@ h1 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
     
 }
+
 .mt-2 {
   margin-top: 40px;
 }
@@ -415,7 +416,21 @@ h1 {
     gap: 10px;
     margin-top: 8px;
 }
-
+.btn-voltar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--c2);; /* verde secundário do design */
+  color: var(--bg) ;
+  padding: 12px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-1);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
 /* Rodapé */
 /* Agora só estiliza coisas dentro do footer */
 footer {

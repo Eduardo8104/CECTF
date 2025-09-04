@@ -239,7 +239,21 @@ h1 {
   border: 1px solid transparent;
   cursor: pointer;
 }
-
+.btn-voltar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--brand-2);; /* verde secundário do design */
+  color: var(--bg) ;
+  padding: 12px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-1);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
 .btn-primary {
   background: linear-gradient(135deg, var(--brand), var(--brand-2));
   color: #052014;
