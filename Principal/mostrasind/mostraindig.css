@@ -271,22 +271,17 @@ h1 {
   grid-template-columns:3fr;
   gap: 14px;
 }
+
+
 .illustration {
   aspect-ratio: 4/3;
   border-radius: 16px;
   overflow: hidden;
   position: relative;
-  margin-right:8px;
-  margin-left: 8px;
-}
-
-.illustration {
-  aspect-ratio: 4/3;
-  border-radius: 166px;
-  overflow: hidden;
-  position: relative;
   margin: right 8px;
-  margin-left: 8px;
+  
+  
+ 
 }
 /*
       =============================
@@ -356,7 +351,7 @@ section {
 
 
 .grid.cols-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 

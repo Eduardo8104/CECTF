@@ -346,6 +346,13 @@ section {
   margin: auto;
   padding: 40px 20px;
 }
+.topogrid {
+  display: grid;
+  gap: var(--gap);
+  max-width: var(--container);
+  margin: auto;
+  padding: 40px 20px;
+}
 .grid.cols-3 {
  grid-template-columns: repeat(3, minmax(200px, 1fr));/* 🔹 antes eram 6, agora 3 colunas */
   max-width: 1400px; /* 🔹 deixa a linha do tempo mais espaçosa */
@@ -353,9 +360,19 @@ section {
   gap: 28px; /* 🔹 aumenta o espaço entre os cards */
   
 }
+.topogrid.cols-3 {
+ grid-template-columns: repeat(3, minmax(200px, 1fr));/* 🔹 antes eram 6, agora 3 colunas */
+  max-width: 1400px; /* 🔹 deixa a linha do tempo mais espaçosa */
+  margin: auto;
+  gap: 28px; /* 🔹 aumenta o espaço entre os cards */
+  display: inline-flex;
+}
 
 
 .grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.topogrid.cols-3 {
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -433,6 +450,7 @@ section {
 }
 
 .kpi {
+  width: 100%;
   display: flex;
   align-items: baseline;
   gap: 10px;
