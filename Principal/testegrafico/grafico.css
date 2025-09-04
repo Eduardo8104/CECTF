@@ -89,7 +89,14 @@ h1 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
     
 }
-
+.mt-2 {
+  margin-top: 40px;
+}
+.logo {
+  display: flex;
+  width: 50px;
+  height: 50px;
+}
 .card h2 {
     margin: 0 0 6px;
     font-size: 1.05rem;
@@ -149,6 +156,27 @@ h1 {
     flex-wrap: wrap;
     gap: 10px 14px;
     margin-top: 10px;
+}
+.legendperg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 12px;
+}
+
+.legendperg .item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.legendperg .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .legend .item {
@@ -389,14 +417,32 @@ h1 {
 }
 
 /* Rodapé */
+/* Agora só estiliza coisas dentro do footer */
 footer {
-    grid-column: 1 / -1;
-    margin-top: 24px;
-    color: var(--muted);
-    font-size: .9rem;
-    text-align: center;
+  padding: 40px 0;
+  background: linear-gradient(180deg, var(--surface),#1E120C);
+  border-top: 1px solid #ff8400;
+  margin-top: 40px;
+  padding: 30px;
 }
 
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .8fr;
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.copyright {
+  margin-top: 14px;
+  font-size: 14px;
+  color: color-mix(in oklab, var(--text) 70%, #ffffff80);
+}
 /* Animações leves (opcional) */
 .card,
 .pie,
