@@ -73,6 +73,7 @@ img {
 .logo {
   display: flex;
   width: 45px;
+  white-space: nowrap;
 }
 
 .container {
@@ -115,24 +116,7 @@ header {
   height: 28px;
 }
 
-.menu {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  font-size: large;
-}
 
-.menu a {
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: var(--text);
-  opacity: .9;
-}
-
-.menu a:hover {
-  background: color-mix(in oklab, var(--brand) 20%, transparent);
-  opacity: 1;
-}
 
 .cta-btn {
   background: linear-gradient(135deg, var(--brand), var(--brand-2));
@@ -307,7 +291,7 @@ h1 {
   border-radius: 16px;
   overflow: visible;
   position: relative;
-  margin-right: 8px;
+  
  
 }
 .illustration img {

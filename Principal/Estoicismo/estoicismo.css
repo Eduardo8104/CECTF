@@ -89,6 +89,7 @@ header {
 .logo {
   display: flex;
   width: 45px;
+  white-space: nowrap;
 }
 
 .logo {
@@ -279,21 +280,20 @@ h1 {
   display: grid;
   grid-template-columns:3fr;
   gap: 14px;
+  padding: 25px;
 }
 
 .illustration {
-  
   aspect-ratio: 4/3;
-  border-radius: 16px;
-  overflow: hidden;
+  border-radius: 18px;
+  overflow: visible;
   position: relative;
-  margin-right:8px;
-  margin-left: 8px;
-  width: 100%;
-  height: 100%;
+  
 }
-
-
+.illustration img{
+  border-radius: 18px;
+  aspect-ratio: 4/3;
+}
 
 /*
       =============================

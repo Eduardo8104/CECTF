@@ -89,6 +89,7 @@ header {
 .logo {
   display: flex;
   width: 45px;
+  white-space: nowrap;
 }
 
 .logo {
