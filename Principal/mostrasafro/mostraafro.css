@@ -60,6 +60,7 @@ img {
 .logo {
   display: flex;
   width: 45px;
+  white-space: nowrap;
 }
 
 .containersobmos h3 img{
@@ -124,24 +125,6 @@ header {
   height: 28px;
 }
 
-.menu {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  font-size: large;
-}
-
-.menu a {
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: var(--text);
-  opacity: .9;
-}
-
-.menu a:hover {
-  background: color-mix(in oklab, var(--brand) 20%, transparent);
-  opacity: 1;
-}
 
 .cta-btn {
   background: linear-gradient(135deg, var(--brand), var(--brand-2));
@@ -307,6 +290,13 @@ h1 {
   grid-template-columns:3fr;
   gap: 14px;
 }
+.textft img:hover{
+   transform:scale(1.1);
+  transition-duration:1s ;
+  z-index: 5;
+
+
+}
 .illustration {
   aspect-ratio: 4/3;
   border-radius: 16px;
@@ -385,7 +375,19 @@ section {
   color: color-mix(in oklab, var(--text) 80%, #ffffff80);
   
 }
-
+.textft{
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  overflow: hidden;
+}
+.textft img{
+  width: 45%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  transition: tranform 0.4 ease;
+}
 /*
       =============================
       CARDS + GRID
