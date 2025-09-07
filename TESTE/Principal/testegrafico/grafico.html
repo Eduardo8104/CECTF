@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Pesquisa da Turma</title>
+  <meta name="description" content="Gráficos em HTML e CSS: gênero, idade, turma, curso e resultados de 3 perguntas." />
+  <link rel="stylesheet" href="grafico.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div>
+        <h1>Resultados do Formulario Aplicado.</h1>
+        <div class="subtitle">Veja a seguir os resultados dos formularios aplicados na EEEP Dario Catunda Fontenele no ano de 2025</div>
+      </div>
+    </header>
+
+    <!-- ===================== GÊNERO (Pizza / Donut) ===================== -->
+    <section class="card grid-6" aria-labelledby="h-genero">
+      <h2 id="h-genero">Distribuição por Gênero</h2>
+      <p class="description"> Masculino 40.8%, Feminino 59.2%.</p>
+
+      <div class="pie" style="--p1:60; --p2:40;"></div>
+
+      <div class="legend" role="list" aria-label="Legenda Gênero">
+        <span class="item" role="listitem">
+          <span class="dot" style="background:var(--c1)"></span> Masculino
+        </span>
+        <span class="item" role="listitem">
+          <span class="dot" style="background:var(--c2)"></span> Feminino
+        </span>
+      </div>
+    </section>
+
+
+
+    <!-- ===================== IDADE (Barras horizontais) ===================== -->
+    <section class="card grid-6" aria-labelledby="h-idade">
+      <h2 id="h-idade">Faixa Etária</h2>
+      <p class="description">Cada barra representa a porcentagem em cada faixa.</p>
+      <div class="hbars" role="list" aria-label="Distribuição por idade">
+        <!-- Ajuste --v (0–100) e opcionalmente mude --color -->
+        <div class="row" role="listitem">
+          <div class="name">15-17</div>
+          <div class="bar" style="--color: var(--c1)"><span style="--v: 35"></span></div>
+          <div class="value">77%</div>
+        </div>
+        <div class="row" role="listitem">
+          <div class="name">18-20</div>
+          <div class="bar" style="--color: var(--c5)"><span style="--v: 44"></span></div>
+          <div class="value">21%</div>
+        </div>
+        <div class="row" role="listitem">
+          <div class="name">20-25</div>
+          <div class="bar" style="--color: var(--c3)"><span style="--v: 21"></span></div>
+          <div class="value">1,5%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TURMA (Barras verticais) ===================== -->
+    <section class="card grid-8" aria-labelledby="h-turma">
+      <h2 id="h-turma">Participação por Turma</h2>
+      <div class="vbars" style="--cols:6" aria-label="Barras verticais por turma">
+        <div>
+          <div class="col"><span style="--v: 26.7; --color: var(--c1)"></span></div>
+          <div class="value">26,7%</div>
+          <div class="label">M.A</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 13.4; --color: var(--c2)"></span></div>
+          <div class="value">13,4%</div>
+          <div class="label">INFO.</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 8; --color: var(--c5)"></span></div>
+          <div class="value">8%</div>
+          <div class="label">EDF.</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 13; --color: var(--c3)"></span></div>
+          <div class="value">13%</div>
+          <div class="label">D.D.S</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 27.9; --color: var(--c4)"></span></div>
+          <div class="value">27,9%</div>
+          <div class="label">ADM.</div>
+        </div>
+        <div>
+          <div class="col"><span style="--v: 11.1; --color: var(--c6)"></span></div>
+          <div class="value">11,1%</div>
+          <div class="label">R.D.C</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CURSO (Barras horizontais compactas) ===================== -->
+    <section class="card grid-4" aria-labelledby="h-curso">
+      <h2 id="h-curso">Cursos</h2>
+
+      <div class="hbars" aria-label="Distribuição por curso">
+        <div class="row">
+          <div class="name">2° ANOS</div>
+          <div class="bar" style="--color: var(--c1)"><span style="--v: 40.2"></span></div>
+          <div class="value">40,2%</div>
+        </div>
+        <div class="row">
+          <div class="name">3° ANOS</div>
+          <div class="bar" style="--color: var(--c2)"><span style="--v: 50.8"></span></div>
+          <div class="value">50,8%</div>
+        </div>
+        <div class="row">
+          <div class="name">Descrição:</div>
+        </div>
+        <ul>
+          <li>M.A = MEIO AMBIENTE</li>
+          <li>ADM. = ADMINISTRAÇÃO</li>
+          <li>D.D.S = DES. DE SISTEMAS</li>
+          <li>R.D.C = REDES DE COMP.</li>
+          <li>EDF. = EDIFICAÇÕES</li>
+          <li>INFO. = INFORMÁTICA</li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 3 PERGUNTAS (Donuts por pergunta) ===================== -->
+    <section class="card grid-12" aria-labelledby="h-perguntas">
+      <h2 id="h-perguntas">Resultados — 3 Perguntas</h2>
+
+      <div class="q-grid" role="group" aria-label="Resultados por pergunta">
+        <!-- PERGUNTA 1 -->
+        <div class="q0102">
+          <!-- Gráfico em pizza (5 valores) -->
+          <div class="mini-pie" style="--v1:1.5; --v2:7.6; --v3:30.9; --v4:34.7; --v5:25.2;">
+            <div class="mini-label">Q1</div>
+          </div>
+
+          <div>
+            <div class="text">
+              <strong>Pergunta 1:</strong> Em uma escala de 1 a 5, como você avalia o quanto os projetos aumentaram o
+              seu conhecimento sobre sustentabilidade?
+            </div>
+
+            <!-- Legenda clara e organizada -->
+            <div class="legendperg">
+              <span class="item"><span class="dot" style="background:var(--c1)"></span>1 (1.5%)</span>
+              <span class="item"><span class="dot" style="background:var(--c2)"></span>2 (7.6%)</span>
+              <span class="item"><span class="dot" style="background:var(--c3)"></span>3 (30.9%)</span>
+              <span class="item"><span class="dot" style="background:var(--c4)"></span>4 (34.7%)</span>
+              <span class="item"><span class="dot" style="background:var(--c5)"></span>5 (25.2%)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERGUNTA 2 -->
+        <div class="q0102">
+          <!-- Gráfico pizza (5 valores) -->
+          <div class="mini-pie" style="--v1:1.1; --v2:2.3; --v3:10.7; --v4:19.2; --v5:66.7;">
+            <div class="mini-label">Q2</div>
+          </div>
+
+          <div>
+            <div class="text">
+              <strong>Pergunta 1:</strong> Em uma escala de 1 a 5, como você avalia a importância dos saberes
+              tradicionais para a preservação ambiental?
+            </div>
+
+            <!-- Legenda organizada -->
+            <div class="legendperg">
+              <span class="item"><span class="dot" style="background:var(--c1)"></span>1 (1.1%)</span>
+              <span class="item"><span class="dot" style="background:var(--c2)"></span>2 (2.3%)</span>
+              <span class="item"><span class="dot" style="background:var(--c3)"></span>3 (10.7%)</span>
+              <span class="item"><span class="dot" style="background:var(--c4)"></span>4 (19.2%)</span>
+              <span class="item"><span class="dot" style="background:var(--c5)"></span>5 (66.7%)</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- PERGUNTA 3 -->
+       <div class="q">
+  <!-- Gráfico pizza (3 valores) -->
+  <div class="mini-pie" style="--yes:33.8; --maybe:50.8; --no:15.4;">
+    <div class="mini-label">Q3</div>
+  </div>
+
+  <div>
+    <div class="text">
+      <strong>Pergunta 3:</strong> Após participar das ações, você adotou algum hábito sustentável?
+    </div>
+
+    <!-- Legenda organizada -->
+    <div class="legendperg">
+      <span class="item"><span class="dot" style="background:var(--c1)"></span>Sim (33.8%)</span>
+      <span class="item"><span class="dot" style="background:var(--c3)"></span>Talvez (50.8%)</span>
+      <span class="item"><span class="dot" style="background:var(--c4)"></span>Não (15.4%)</span>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+    </section>
+   <a href="#" class="btn-voltar" onclick="history.back()">Voltar</a>
+   <footer>
+        <div class="container footer-grid">
+            <div>
+                <div class="logo" aria-label="Ceará Científico">
+                    <img src="Imgs/Ceara-2.png" alt="" class="logo">
+                    <strong>Ceará Científico 2025</strong>
+                </div>
+                <p class="mt-2"> <strong>Filosofia e Saberes Tradicionais:</strong> Caminhos para a sustentabilidade em
+                    tempos de crise climática
+                <p class="copyright">© <span id="year"></span> CEARÁ CIENTIFICO. Todos os direitos reservados.</p>
+            </div>
+            <div>
+            </div>
+            <div>
+                <h4>Entre em Contato</h4>
+                <p>Telefone: (88) 3685-1188
+                </p>
+                <p>
+                    Email para contato:
+                    eeepdario.catunda@escola.ce.gov.br
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
