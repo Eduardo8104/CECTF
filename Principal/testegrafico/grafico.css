@@ -95,8 +95,21 @@ h1 {
 }
 .logo {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  white-space: nowrap;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.logo svg {
+  width: 28px;
+  height: 28px;
 }
 .card h2 {
     margin: 0 0 6px;

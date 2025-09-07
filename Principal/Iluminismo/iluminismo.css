@@ -89,6 +89,7 @@ header {
 .logo {
   display: flex;
   width: 45px;
+  white-space: nowrap;
 }
 
 .logo {
@@ -116,11 +117,10 @@ header {
   color: var(--text);
   opacity: .9;
 }
-
-.menu a:hover {
-  background: color-mix(in oklab, var(--brand) 20%, transparent);
-  opacity: 1;
+.menu button{
+  height: 50px;
 }
+
 
 .cta-btn {
   background: linear-gradient(135deg, var(--brand), var(--brand-2));
@@ -282,15 +282,16 @@ h1 {
 }
 
 .illustration {
-  
   aspect-ratio: 4/3;
   border-radius: 16px;
   overflow: hidden;
   position: relative;
-  margin-right:8px;
-  margin-left: 8px;
   width: 100%;
   height: 100%;
+}
+.illustration:hover {
+  transform: scale(1.2);
+  transition: 1s;
 }
 
 
