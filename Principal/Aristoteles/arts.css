@@ -78,6 +78,7 @@ header {
   background: color-mix(in oklab, var(--surface) 70%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid color-mix(in oklab, var(--brand) 40%, transparent);
+  height: 100px;
 }
 
 .nav {
@@ -88,14 +89,17 @@ header {
 }
 .logo {
   display: flex;
-  width: 45px;
+  width: 80px;
+  height: 80px;
   white-space: nowrap;
+  margin-bottom: 8px ;
 }
 
 .logo {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: .5px;
 }
