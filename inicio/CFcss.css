@@ -82,6 +82,7 @@ header {
   border-bottom: 1px solid color-mix(in oklab, var(--brand) 40%, transparent);
   white-space: nowrap;
   height: 100px;
+  width: 100%;
 }
 
 .nav {
@@ -498,6 +499,7 @@ footer {
   background: linear-gradient(180deg, var(--surface),#1E120C);
   border-top: 1px solid #ff8400;
   margin-top: 40px;
+  width: 100%;
 }
 
 .footer-grid {
