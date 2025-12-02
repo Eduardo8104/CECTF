@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria do Projeto</title>
+    <link rel="stylesheet" href="teste.css" />
+</head>
+<body>
+
+ <header>
+        <div class="container nav">
+            <a class="logo" href="#inicio" aria-label="Ceará Científico — voltar ao início">
+                <img src="Ceara-2.png" alt="" class="logo">
+                Ceará Científico 2025
+            </a>
+            <nav class="menu" aria-label="Menu principal">
+                <button class="cta-btn"
+                    onclick="document.getElementById('newsletter').scrollIntoView({behavior:'smooth'})">Obrigado pela
+                    Atenção</button>
+            </nav>
+        </div>
+
+    </header>
+
+
+<section id="regional" class="reveal">
+    <div class="container section-head03">
+        <h2 class="section-title">Etapa Regional</h2>
+    </div>
+
+    <div class="grid cols-3">
+        <div class="card">
+            <div class="illustration">
+                <img src="regional1.jpg" alt="Etapa Regional 1" />
+            </div>
+        </div>
+        <div class="card">
+            <div class="illustration">
+                <img src="regional2.jpg" alt="Etapa Regional 2" />
+            </div>
+        </div>
+        <div class="card">
+            <div class="illustration">
+                <img src="regional3.jpg" alt="Etapa Regional 3" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="escolar" class="reveal">
+    <div class="container section-head03">
+        <h2 class="section-title">Etapa Escolar</h2>
+    </div>
+
+    <div class="grid cols-3">
+        <div class="card">
+            <div class="illustration">
+                <img src="escolar1.jpg" alt="Etapa Escolar 1" />
+            </div>
+        </div>
+        <div class="card">
+            <div class="illustration">
+                <img src="escolar2.jpg" alt="Etapa Escolar 2" />
+            </div>
+        </div>
+        <div class="card">
+            <div class="illustration">
+                <img src="escolar3.jpg" alt="Etapa Escolar 3" />
+            </div>
+        </div>
+    </div>
+</section>
+
+ <footer>
+            <div class="container footer-grid">
+                <div>
+                    <div class="logo" aria-label="Ceará Científico">
+                        <img src="Ceara-2.png" alt="" class="logo">
+                        <strong>Ceará Científico 2025</strong>
+                    </div>
+                    <p class="mt-2"> <strong>Filosofia e Saberes Tradicionais:</strong> Caminhos para a sustentabilidade
+                        em
+                        tempos de crise climática
+                    <p class="copyright">© <span id="year"></span> CEARÁ CIENTIFICO. Todos os direitos reservados.</p>
+                </div>
+                <div>
+                </div>
+                <div>
+                    <h4>Entre em Contato</h4>
+                    <p>Telefone: (88) 3685-1188
+                    </p>
+                    <p>
+                        Email para contato:
+                        eeepdario.catunda@escola.ce.gov.br
+                    </p>
+                </div>
+            </div>
+        </footer>
+<script>
+// animação simples das sections
+const reveals = document.querySelectorAll('.reveal');
+function onScroll() {
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80) el.classList.add('in');
+  });
+}
+window.addEventListener('scroll', onScroll);
+onScroll();
+</script>
+
+</body>
+</html>
